@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<moduleData>
+	<modules>
+		<module id='1' name='Login' image='Login.png' />
+		<module id='2' name='Student' image='Student.png' />
+		<module id='3' name='Receipt' image='Receipt.png' />
+		<module id='4' name='HRMS' image='HRMS.png' />
+		<module id='5' name='Payroll' image='Payroll.png' />
+		<module id='6' name='Academic' image='Academic.png' />
+	</modules>
+	<groups>
+		<group id='1' name='Login Configuration' viewName='LoginConfiguration' />
+		<group id='2' name='Login Access Control' viewName='LoginAccessControl' />
+		<group id='3' name='Student Admission Configuration' viewName='StudentAdmissionConfiguration' />
+		<group id='4' name='Student Management' viewName='StudentManagement' />
+		<group id='5' name='Receipt Configuration' viewName='ReceiptConfiguration' />
+		<group id='6' name='Student Admission Receipt' viewName='StudentAdmissionReceipt' />
+		<group id='7' name='Receipt Reports' viewName='ReceiptReports' />
+		<group id='8' name='Employee Configuration' viewName='EmployeeConfiguration' />
+		<group id='9' name='Employee Management' viewName='EmployeeManagement' />
+		<group id='10' name='Leave Configuration' viewName='LeaveConfiguration' />
+		<group id='11' name='Leave Management' viewName='LeaveManagement' />
+		<group id='12' name='Payroll Configuration' viewName='PayrollConfiguration' />
+		<group id='13' name='Add Payroll Record' viewName='AddPayrollRecord' />
+		<group id='14' name='Payroll Modification' viewName='PayrollModification' />
+		<group id='15' name='Payroll Reports' viewName='PayrollReports' />
+		<group id='16' name='Pay Slip' viewName='PaySlip' />
+		<group id='17' name='Academic Management Reguler' viewName='AcademicManagementReguler' />
+		<group id='18' name='Academic Configuration' viewName='AcademicConfiguration' />
+		<group id='19' name='Academic Management' viewName='AcademicManagement' />
+		<group id='20' name='Academic Reports' viewName='AcademicReports' />
+		<group id='21' name='SMS Service' viewName='SMSService' />
+		<group id='22' name='Student Promotion' viewName='StudentPromotion' />
+		<group id='23' name='Student Profile' viewName='StudentProfile' />
+		<group id='24' name='Student Old Fees' viewName='StudentOldFees' />
+	</groups>
+	<submodules>
+		<submodule id='1' name='Login Configuration' moduleId='1'
+			groupId='1' propertyPath='isLoginConfiguration' />
+		<submodule id='2' name='Login Access Control' moduleId='1'
+			groupId='2' propertyPath='isLoginAccessControl' />
+		<submodule id='3' name='Student Admission Configuration'
+			moduleId='2' groupId='3' propertyPath='isStudentAdmissionConfiguration' />
+		<submodule id='4' name='Student New Admission' moduleId='2'
+			groupId='4' propertyPath='isStudentNewAdmission' />
+		<submodule id='5' name='Modification of Student Admission'
+			moduleId='2' groupId='4' propertyPath='isModificationofStudentAdmission' />
+		<submodule id='6' name='Delete Student Record' moduleId='2'
+			groupId='4' propertyPath='isDeleteStudentRecord' />
+		<submodule id='7' name='Student Admission Reports' moduleId='2'
+			groupId='4' propertyPath='isStudentAdmissionReports' />
+		<submodule id='8' name='Receipt Configuration' moduleId='3'
+			groupId='5' propertyPath='isReceiptConfiguration' />
+		<submodule id='9' name='Student Admission Receipt' moduleId='3'
+			groupId='6' propertyPath='isStudentAdmissionReceipt' />
+		<submodule id='10' name='Receipt Reports' moduleId='3'
+			groupId='7' propertyPath='isReceiptReports' />
+		<submodule id='11' name='Employee Configuration' moduleId='4'
+			groupId='8' propertyPath='isEmployeeConfiguration' />
+		<submodule id='12' name='Add New Employee' moduleId='4'
+			groupId='9' propertyPath='isAddNewEmployee' />
+		<submodule id='13' name='Modification Of Employee Records'
+			moduleId='4' groupId='9' propertyPath='isModificationOfEmployeeRecords' />
+		<submodule id='14' name='Employee Reports' moduleId='4'
+			groupId='9' propertyPath='isEmployeeReports' />
+		<submodule id='15' name='Delete Employee' moduleId='4'
+			groupId='9' propertyPath='isDeleteEmployee' />
+		<submodule id='16' name='Leave Configuration' moduleId='4'
+			groupId='10' propertyPath='isLeaveConfiguration' />
+		<submodule id='17' name='Leave Application' moduleId='4'
+			groupId='11' propertyPath='isLeaveApplication' />
+		<submodule id='18' name='Leave Histroy' moduleId='4'
+			groupId='11' propertyPath='isLeaveHistroy' />
+		<submodule id='19' name='Leave Approval By HOD' moduleId='4'
+			groupId='11' propertyPath='isLeaveApprovalByHOD' />
+		<submodule id='20' name='Leave Approval By Principal'
+			moduleId='4' groupId='11' propertyPath='isLeaveApprovalByPrincipal' />
+		<submodule id='21' name='Leave Reports' moduleId='4'
+			groupId='11' propertyPath='isLeaveReports' />
+		<submodule id='22' name='Payroll Configuration' moduleId='5'
+			groupId='12' propertyPath='isPayrollConfiguration' />
+		<submodule id='23' name='Add Payroll Record' moduleId='5'
+			groupId='13' propertyPath='isAddPayrollRecord' />
+		<submodule id='24' name='Payroll Increment' moduleId='5'
+			groupId='14' propertyPath='isPayrollIncrement' />
+		<submodule id='25' name='Payroll Modificaiton' moduleId='5'
+			groupId='14' propertyPath='isPayrollModificaiton' />
+		<submodule id='26' name='Payroll Promotion' moduleId='5'
+			groupId='14' propertyPath='isPayrollPromotion' />
+		<submodule id='27' name='Payroll Reports' moduleId='5'
+			groupId='15' propertyPath='isPayrollReports' />
+		<submodule id='28' name='Pay Slip' moduleId='5' groupId='16'
+			propertyPath='isPaySlip' />
+		<submodule id='29' name='Section Allocation' moduleId='6'
+			groupId='17' propertyPath='isSectionAllocation' />
+		<submodule id='30' name='Section Teacher Allocation'
+			moduleId='6' groupId='17' propertyPath='isSectionTeacherAllocation' />
+		<submodule id='31' name='Academic Configuration Nursery'
+			moduleId='6' groupId='18' propertyPath='isAcademicConfigurationNursery' />
+		<submodule id='32' name='Faculty Allocation Nursery'
+			moduleId='6' groupId='19' propertyPath='isFacultyAllocationNursery' />
+		<submodule id='33' name='Student Section Allocation Nursery'
+			moduleId='6' groupId='19' propertyPath='isStudentSectionAllocationNursery' />
+		<submodule id='34' name='General Remarks Nursery' moduleId='6'
+			groupId='19' propertyPath='isGeneralRemarksNursery' />
+		<submodule id='35' name='Term Grade Nursery' moduleId='6'
+			groupId='19' propertyPath='isTermGradeNursery' />
+		<submodule id='36' name='Medical Fittness Nursery' moduleId='6'
+			groupId='19' propertyPath='isMedicalFittnessNursery' />
+		<submodule id='37' name='Student Attendance Nursery'
+			moduleId='6' groupId='19' propertyPath='isStudentAttendanceNursery' />
+		<submodule id='38' name='Academic Report Nursery' moduleId='6'
+			groupId='20' propertyPath='isAcademicReportNursery' />
+		<submodule id='39' name='SMS Service' moduleId='6' groupId='21'
+			propertyPath='isSMSService' />
+		<submodule id='40' name='Student Promotion' moduleId='2'
+			groupId='22' propertyPath='isStudentPromotion' />
+		<submodule id='41' name='Student Profile' moduleId='2'
+			groupId='23' propertyPath='isStudentProfile' />
+		<submodule id='42' name='Student Old Fees' moduleId='3'
+			groupId='24' propertyPath='isStudentOldFees' />
+	</submodules>
+</moduleData>

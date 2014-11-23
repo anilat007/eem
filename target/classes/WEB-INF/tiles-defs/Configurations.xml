@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+	<!-- Configurations Template -->
+	<definition name=".config" template="/WEB-INF/tiles-templates/Configurations/ConfigTile.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles-templates/Configurations/Header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles-templates/Configurations/Menu.jsp" />
+		<put-attribute name="title" value="Configurations" type="string" />
+		<put-attribute name="domainJS" value="" type="string" />
+	</definition>
+	
+	<definition name="studentAdmissionConfiguration" extends=".config">
+		<put-attribute name="title" value="Student Admission Configuration" type="string" />
+		<put-attribute name="domainJS" value="controllers/student/StudentAdmissionConfigurations" />
+		<put-attribute name="basePath" value="StudentAdmissionConfiguration" />
+	</definition>
+	
+	<definition name="receiptConfiguration" extends=".config">
+		<put-attribute name="title" value="Receipt Configuration" type="string" />
+		<put-attribute name="domainJS" value="controllers/receipt/ReceiptConfigurations" />
+	</definition>
+
+	<definition name="studentManagement" extends=".config">
+		<put-attribute name="title" value="Student Management" type="string" />
+		<put-attribute name="domainJS" value="controllers/student/StudentManagement" />
+	</definition>
+</tiles-definitions>

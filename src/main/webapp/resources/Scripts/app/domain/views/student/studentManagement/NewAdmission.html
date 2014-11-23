@@ -1,0 +1,569 @@
+<div id="admissionAccordion" class="highlightSuccessFields">
+	<div class="clearfix">
+		<div class="pull-right">
+			<kb-toggle-switch
+				ng-model="ctrl.panelModel.oneAtATime"
+				data-text-on="{{kb.val('common:yes')}}"
+				data-text-off="{{kb.val('common:no')}}"
+				data-text-label="{{kb.val('studentManagement:admission.showOneAtOnce')}}"
+				label-position = "after">
+			</kb-toggle-switch>
+			<!-- <label class="checkbox">
+				<input type="checkbox" ng-model="ctrl.panelModel.oneAtATime" class="ng-valid ng-dirty">
+				<span data-once-text="kb.val('studentManagement:admission.showOneAtOnce')"></span>
+			  			</label> -->
+		</div>
+	</div>
+
+	<accordion close-others="ctrl.panelModel.oneAtATime">
+		<accordion-group data-is-open="ctrl.panelModel.studentDetails.isOpen"
+			data-ng-class="{'panel panel-primary':ctrl.panelModel.studentDetails.isOpen}">
+			<accordion-heading>
+				<span data-once-text="kb.val('studentManagement:admission.studentDetails')"></span>
+			</accordion-heading>
+			<div class="ng-form" name="frmStudentDetails" data-ng-class="{'formSubmitted':ctrl.showStudentDetailsErrors}">
+				<div class="well">
+					<div class="row">
+						<div class="col-sm-4 form-group">
+							<label for="uxAdmissionDate" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.admissionDate')">
+							</label>
+							<kb-calender id="uxAdmissionDate" name="uxAdmissionDate" disabled="disabled"
+								max-date="{{ctrl.defaults.admissionDateMax}}" ng-required="true"
+								ng-model="ctrl.studentDetails.admissionDate"
+								ng-init="ctrl.studentDetails.admissionDate = ctrl.studentDetails.admissionDate || ctrl.defaults.admissionDate">
+							</kb-calender>
+					    </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxScheme" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.scheme')">
+							</label>
+							<select class="form-control" id="uxScheme" name="uxScheme"
+			            		ng-model="ctrl.studentDetails.schemeId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.schemeList"
+			            			ng-value="item.id">{{item.name}}</option>
+							</select>
+				    	</div>
+					</div>
+
+					<div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxAdmissionType" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.admissionType')">
+							</label>
+							<select class="form-control" id="uxAdmissionType" name="uxAdmissionType"
+			            		ng-model="ctrl.studentDetails.admissionTypeId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.admissionTypeList"
+			            			ng-value="item.id">{{item.name}}</option>
+							</select>
+				    	</div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxCourse" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.course')">
+							</label>
+							<select class="form-control" id="uxCourse" name="uxCourse"
+			            		ng-model="ctrl.studentDetails.courseId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.courseList"
+			            			ng-value="item.id">{{item.name}}</option>
+							</select>
+				    	</div>
+
+				    	<div class="col-sm-4 form-group">
+							<label for="uxYear" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.year')">
+							</label>
+							<select class="form-control" id="uxYear" name="uxYear"
+			            		ng-model="ctrl.studentDetails.yearId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.yearList"
+			            			ng-value="item.id">{{item.name}}</option>
+							</select>
+				    	</div>
+			    	</div>
+		    	</div>
+
+		    	<div class="well">
+			    	<div class="row">
+						<div class="col-sm-4 form-group">
+							<label for="uxFName" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.firstName')">
+							</label>
+							<input type="text" class="form-control" id="uxFName" name="uxFName"								
+								ng-model="ctrl.studentDetails.firstName" ng-required="true" />
+					    </div>
+
+						<div class="col-sm-4 form-group">
+							<label for="uxMName"
+								data-once-text="kb.val('studentManagement:admission.middleName')">
+							</label>
+							<input type="text" class="form-control" id="uxMName" name="uxMName"								
+								ng-model="ctrl.studentDetails.middleName" />
+					    </div>
+
+						<div class="col-sm-4 form-group">
+							<label for="uxLName" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.lastName')">
+							</label>
+							<input type="text" class="form-control" id="uxLName" name="uxLName"								
+								ng-model="ctrl.studentDetails.lastName" ng-required="true" />
+					    </div>
+			    	</div>
+
+			    	<div class="row">
+			    		<div class="col-sm-4 form-group">
+							<label class="requiredMark" data-once-text="kb.val('studentManagement:admission.gender')"></label>
+							<div class="form-control radioList" data-ng-class="{'required':ctrl.studentDetails.gender === undefined}">
+								<span ng-repeat="item in ctrl.admissionConfigLists.genderList" style="margin-right:10px;">
+									<input type="radio" id="uxGender{{$index}}" name="uxGender" ng-value="item.id"
+										ng-model="ctrl.studentDetails.gender" ng-required="true" />
+									<label for="uxGender{{$index}}"><img title="{{item.name}}" alt="{{item.name}}" style="height:24px;cursor:pointer"
+										ng-src="{{kb.imgRoot}}{{item.name | lowercase}}.png" />
+									</label>
+								</span>
+							</div>
+					    </div>
+
+			    		<div class="col-sm-4 form-group">
+							<label for="uxBirthDate" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.birthDate')">
+							</label>
+							<kb-calender id="uxBirthDate" name="uxBirthDate" disabled="disabled"
+								max-date="{{ctrl.defaults.birthDateMax}}"
+								ng-model="ctrl.studentDetails.birthDate" ng-required="true">
+							</kb-calender>
+					    </div>
+
+						<div class="col-sm-4 form-group">
+							<label for="uxBloodGroup" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.bloodGroup')">
+							</label>
+							<select class="form-control" id="uxBloodGroup" name="uxBloodGroup"
+			            		ng-model="ctrl.studentDetails.bloodGroupId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.bloodGroupList"
+			            			ng-value="item.id">{{item.name}}</option>
+							</select>
+				    	</div>
+			    	</div>
+
+			    	<div class="row">
+			    		<div class="col-sm-4 form-group">
+							<label for="uxReligion" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.religion')">
+							</label>
+							<select class="form-control" id="uxReligion" name="uxReligion"
+			            		ng-model="ctrl.studentDetails.religionId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.religionList"
+			            			ng-value="item.name">{{item.name}}</option>
+							</select>
+			            </div>
+
+			    		<div class="col-sm-4 form-group">
+							<label for="uxCaste" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.caste')">
+							</label>
+							<select class="form-control" id="uxCaste" name="uxCaste"
+			            		ng-model="ctrl.studentDetails.casteId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.casteList"
+			            			ng-value="item.name">{{item.name}}</option>
+							</select>
+			            </div>
+
+			    		<div class="col-sm-4 form-group">
+							<label for="uxCategory" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.category')">
+							</label>
+							<select class="form-control" id="uxCategory" name="uxCategory"
+			            		ng-model="ctrl.studentDetails.categoryId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.admissionCategoryList"
+			            			ng-value="item.name">{{item.name}}</option>
+							</select>
+			            </div>
+			    	</div>
+
+			    	<div class="row">
+			    		<div class="col-sm-4 form-group">
+							<label class="requiredMark" data-once-text="kb.val('studentManagement:admission.area')"></label>
+							<div class="form-control radioList" data-ng-class="{'required':ctrl.studentDetails.area === undefined}">
+								<span ng-repeat="item in ctrl.admissionConfigLists.areaList" style="margin-right:10px;">
+									<input type="radio" id="uxArea{{$index}}" name="uxArea" ng-value="item.name"
+										ng-model="ctrl.studentDetails.area" ng-required="true" />
+									<label for="uxArea{{$index}}" data-once-text="item.name"></label>
+								</span>
+							</div>
+						</div>
+
+						<div class="col-sm-4 form-group">
+							<label for="uxNationality" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.nationality')">
+							</label>
+							<select class="form-control" id="uxNationality" name="uxNationality"
+			            		ng-model="ctrl.studentDetails.nationality" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.nationalityList"
+			            			ng-value="item.name">{{item.name}}</option>
+							</select>
+				    	</div>
+
+						<div class="col-sm-4 form-group">
+							<label for="uxState" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.state')">
+							</label>
+							<select class="form-control" id="uxState" name="uxState"
+			            		ng-model="ctrl.studentDetails.stateId" ng-required="true">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.stateList"
+			            			ng-value="item.name">{{item.name}}</option>
+							</select>
+				    	</div>
+			    	</div>
+
+			    	<div class="row">
+			    		<div class="col-sm-4 form-group">
+							<label for="uxMobileNo"
+								data-once-text="kb.val('studentManagement:admission.mobileNo')">
+							</label>
+
+							<div class="input-group input-group">
+				                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+				                <input type="text" class="form-control" id="uxMobileNo" name="uxMobileNo"
+				                	ng-model="ctrl.studentDetails.mobileNo" ng-pattern="ctrl.defaults.mobileNoPattern" />								
+				            </div>
+				            <div class="message-container">
+					            <p data-ng-show="frmStudentDetails.uxMobileNo.$error.pattern"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errInvalidContactNumber')">
+								</p>
+							</div>
+					    </div>
+
+			    		<div class="col-sm-4 form-group">
+							<label for="uxLandlineNo"
+								data-once-text="kb.val('studentManagement:admission.landlineNo')">
+							</label>
+							<div class="input-group input-group">
+				                <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+								<input type="text" class="form-control" id="uxLandlineNo" name="uxLandlineNo"
+									ng-model="ctrl.studentDetails.landlineNo" ng-pattern="ctrl.defaults.mobileNoPattern" />
+							</div>
+							<div class="message-container">
+								<p data-ng-show="frmStudentDetails.uxLandlineNo.$error.pattern"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errInvalidContactNumber')">
+								</p>
+							</div>
+					    </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxEmailId"
+								data-once-text="kb.val('studentManagement:admission.emailId')">
+							</label>
+							<div class="input-group input-group">
+				                <span class="input-group-addon">@</span>
+								<input type="text" class="form-control" id="uxEmailId" name="uxEmailId"
+									ng-model="ctrl.studentDetails.emailId" ng-pattern="ctrl.defaults.emailIdPattern" />
+							</div>
+							<div class="message-container">
+								<p data-ng-show="frmStudentDetails.uxEmailId.$error.pattern"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errInvalidEmailId')">
+								</p>
+							</div>
+			            </div>
+			    	</div>
+
+			    	<div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxStudentCallName" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.studentCallName')">
+							</label>
+			                <input type="text" class="form-control" id="uxStudentCallName" name="uxStudentCallName"			                	
+								ng-model="ctrl.studentDetails.studentCallName" ng-required="true" />
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxMotherTongue" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.motherTongue')">
+							</label>
+			                <input type="text" class="form-control" id="uxMotherTongue" name="uxMotherTongue"			                	
+								ng-model="ctrl.studentDetails.motherTongue" ng-required="true" />
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxBirthPlace" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.birthPlace')">
+							</label>
+			                <input type="text" class="form-control" id="uxBirthPlace" name="uxBirthPlace"			                	
+								ng-model="ctrl.studentDetails.birthPlace" ng-required="true" />
+			            </div>
+			    	</div>
+
+			    	<div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxIdentificationMark" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.identificationMark')">
+							</label>
+			                <input type="text" class="form-control" id="uxIdentificationMark" name="uxIdentificationMark"			                	
+								ng-model="ctrl.studentDetails.identificationMark" ng-required="true" />
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxHeight"
+								data-once-text="kb.val('studentManagement:admission.height')">
+							</label>
+			                <input type="number" class="form-control" id="uxHeight" name="uxHeight"			                	
+								ng-model="ctrl.studentDetails.height" />
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxWeight"
+								data-once-text="kb.val('studentManagement:admission.weight')">
+							</label>
+			                <input type="number" class="form-control" id="uxWeight" name="uxWeight"			                	
+								ng-model="ctrl.studentDetails.weight" />
+			            </div>
+			    	</div>
+
+			    	<div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxHobbies"
+								data-once-text="kb.val('studentManagement:admission.hobbies')">
+							</label>
+			                <textarea class="form-control" id="uxHobbies" name="uxHobbies"			                	
+								ng-model="ctrl.studentDetails.hobbies">
+							</textarea>
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxInterests"
+								data-once-text="kb.val('studentManagement:admission.interests')">
+							</label>
+			                <textarea class="form-control" id="uxInterests" name="uxInterests"			                	
+								ng-model="ctrl.studentDetails.interests">
+							</textarea>
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxSports"
+								data-once-text="kb.val('studentManagement:admission.sports')">
+							</label>
+			                <textarea class="form-control" id="uxSports" name="uxSports"			                	
+								ng-model="ctrl.studentDetails.sports">
+							</textarea>
+			            </div>
+		            </div>
+
+		            <div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxCompitition"
+								data-once-text="kb.val('studentManagement:admission.compititionParticipation')">
+							</label>
+			                <textarea class="form-control" id="uxCompitition" name="uxCompitition"			                	
+								ng-model="ctrl.studentDetails.compititionParticipation">
+							</textarea>
+			            </div>
+
+					    <div class="col-sm-4 form-group">
+							<label for="uxAwards"
+								data-once-text="kb.val('studentManagement:admission.awards')">
+							</label>
+			                <textarea class="form-control" id="uxAwards" name="uxAwards"			                	
+								ng-model="ctrl.studentDetails.awards">
+							</textarea>
+			            </div>
+
+			            <div class="col-sm-4 form-group">
+							<label for="uxHealthProblem"
+								data-once-text="kb.val('studentManagement:admission.healthProblem')">
+							</label>
+			                <textarea class="form-control" id="uxHealthProblem" name="uxHealthProblem"			                	
+								ng-model="ctrl.studentDetails.healthProblem">
+							</textarea>
+			            </div>
+		            </div>
+		    	</div>
+
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary" ng-click="ctrl.OnStudentDetailsSubmit()"
+				   		data-once-text="kb.val('studentManagement:admission.saveStudentDetails')"></button>
+				   	<button type="button" class="btn btn-primary dropdown-toggle" 
+				      	data-toggle="dropdown">
+				    	<span class="caret"></span>
+				      	<span class="sr-only">Toggle Dropdown</span>
+					</button>
+			   		<ul class="dropdown-menu" role="menu">
+				   		<li><a class="pointer" ng-click="ctrl.OnStudentDetailsToggleErrors()" data-once-text="kb.val('common:toggleErrors')"></a></li>
+				   </ul>
+				</div>
+			</div>
+		</accordion-group>
+
+		<accordion-group data-is-open="ctrl.panelModel.qualifiedExamDetails.isOpen"
+			data-ng-class="{'panel panel-primary':ctrl.panelModel.qualifiedExamDetails.isOpen}">
+			<accordion-heading>
+				<span data-once-text="kb.val('studentManagement:admission.qualifiedExamDetails')"></span>
+			</accordion-heading>
+			<div class="ng-form" name="uxExamDetailsForm" data-ng-class="{'formSubmitted':ctrl.showExamDetailsErrors}">
+				<div class="well">
+					<div class="row clearfix">
+						<div class="col-sm-4 form-group">
+							<kb-toggle-switch id="uxFresher" name="uxFresher"
+								ng-model="ctrl.qualifiedExamDetails.isFresher"
+								data-text-on="{{kb.val('common:yes')}}"
+								data-text-off="{{kb.val('common:no')}}"
+								data-text-label="{{kb.val('studentManagement:admission.isFresher')}}"
+								label-position = "before">
+							</kb-toggle-switch>
+					    </div>
+					</div>
+					
+					<div class="row">
+					    <div class="col-sm-4 form-group">
+							<label for="uxBoardExam" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.boardExam')"></label>
+							<select class="form-control" id="uxBoardExam" name="uxBoardExam"
+			            		ng-model="ctrl.qualifiedExamDetails.quaExamBoardId">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.boardExamList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+				    	</div>
+				        
+				        <div class="col-sm-4 form-group">
+				        	<label for="uxQualifiedExam" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.qualifiedExam')"></label>
+							<select class="form-control" id="uxQualifiedExam" name="uxQualifiedExam"
+			            		ng-model="ctrl.qualifiedExamDetails.quaExamId">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.qualifiedExamList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					    </div>
+				        
+				    	<div class="col-sm-4 form-group">
+				    		<label for="uxExamState" class="requiredMark"
+								data-once-text="kb.val('studentManagement:admission.examState')"></label>
+							<select class="form-control" id="uxExamState" name="uxExamState"
+			            		ng-model="ctrl.qualifiedExamDetails.quaExamStateId">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.stateList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					 	</div>
+				 	</div>
+
+				 	<div class="row">
+				        <div class="col-sm-4 form-group">
+							<label for="uxExamRegNumber" data-once-text="kb.val('studentManagement:admission.examRegNo')"></label>
+							<input type="text" class="form-control" id="uxExamRegNumber" name="uxExamRegNumber"
+					      		ng-model="ctrl.qualifiedExamDetails.quaExamRegNo" />
+					    </div>
+
+				        <div class="col-sm-4 form-group">
+							<label for="uxPassingDate" data-once-text="kb.val('studentManagement:admission.passingDate')"></label>
+							<kb-calender id="uxPassingDate" name="uxPassingDate" disabled="disabled"
+								format="{{format}}" max-date="{{maxDate}}"
+								ng-model="ctrl.qualifiedExamDetails.quaExamPassingYear" ng-required="true">
+							</kb-calender>
+					    </div>
+				        
+				    	<div class="col-sm-4 form-group">
+					    	<label for="uxPreviousInstitute" data-once-text="kb.val('studentManagement:admission.previousInstitute')"></label>
+							<select class="form-control" id="uxPreviousInstitute" name="uxPreviousInstitute"
+			            		ng-model="ctrl.qualifiedExamDetails.previousInstituteId">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.previousInstituteList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					 	</div>
+				 	</div>
+
+				 	<div class="row">
+				        <div class="col-sm-4 form-group">
+							<label for="uxTotalMarks" data-once-text="kb.val('studentManagement:admission.totalMarks')"></label>
+							<input type="text" class="form-control" id="uxTotalMarks" name="uxTotalMarks"
+					      		ng-model="ctrl.qualifiedExamDetails.totalMarks" ng-pattern="ctrl.defaults.positiveNonZeroNumberPattern"
+					      		ng-blur="ctrl.UpdateExamPercentage()" />
+				      		<div class="message-container">
+					      		<p data-ng-show="uxExamDetailsForm.uxTotalMarks.$error.pattern"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errPositiveNonZeroNumber')">
+								</p>
+							</div>
+					    </div>
+				        
+				        <div class="col-sm-4 form-group">
+							<label for="uxScoredMarks" data-once-text="kb.val('studentManagement:admission.scoredMarks')"></label>
+							<input type="text" class="form-control" id="uxScoredMarks" name="uxScoredMarks"
+					      		ng-model="ctrl.qualifiedExamDetails.scoredMarks" ng-pattern="ctrl.defaults.positiveNumberPattern"
+					      		ng-blur="ctrl.UpdateExamPercentage()" />
+				      		<div class="message-container">
+					      		<p data-ng-show="uxExamDetailsForm.uxScoredMarks.$error.pattern"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errPositiveNumber')">
+								</p>
+								<p data-ng-show="ctrl.errorFlags.scoredMarksGreaterThanTotal"
+									class="message-error" data-once-text="kb.val('studentManagement:admission.errScoredMarksGreaterThanTotal')">
+								</p>
+							</div>
+					    </div>
+				        
+				        <div class="col-sm-4 form-group">
+							<label for="uxPercentage" data-once-text="kb.val('studentManagement:admission.percentage')"></label>
+							<div class="input-group input-group">
+				                <input type="text" class="form-control" id="uxPercentage" name="uxPercentage" readonly="readonly" 
+						      		ng-model="ctrl.qualifiedExamDetails.percentage" />
+								<span class="input-group-addon">%</span>
+				            </div>
+					    </div>
+				 	</div>
+
+				 	<div class="row">
+				    	<div class="col-sm-4 form-group">
+					    	<label for="uxMedium" data-once-text="kb.val('studentManagement:admission.medium')"></label>
+							<select class="form-control" id="uxMedium" name="uxMedium"
+			            		ng-model="ctrl.qualifiedExamDetails.medium">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.mediumList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					 	</div>
+				        
+				    	<div class="col-sm-4 form-group">
+					    	<label for="uxFirstLanguage" data-once-text="kb.val('studentManagement:admission.firstLanguage')"></label>
+							<select class="form-control" id="uxFirstLanguage" name="uxFirstLanguage"
+			            		ng-model="ctrl.qualifiedExamDetails.firstLanguage">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.languageList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					 	</div>
+				        
+				    	<div class="col-sm-4 form-group">
+					    	<label for="uxSecondLanguage" data-once-text="kb.val('studentManagement:admission.secondLanguage')"></label>
+							<select class="form-control" id="uxSecondLanguage" name="uxSecondLanguage"
+			            		ng-model="ctrl.qualifiedExamDetails.secondLanguage">
+			            		<option ng-repeat="item in ctrl.admissionConfigLists.languageList"
+				            			ng-value="item.name">{{item.name}}</option>
+							</select>
+					 	</div>
+					</div>
+				</div>
+
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary" ng-click="ctrl.OnExamDetailsSubmit()"
+				   		data-once-text="kb.val('studentManagement:admission.saveExamDetails')"></button>
+				   	<button type="button" class="btn btn-primary dropdown-toggle" 
+				      	data-toggle="dropdown">
+				    	<span class="caret"></span>
+				      	<span class="sr-only">Toggle Dropdown</span>
+					</button>
+			   		<ul class="dropdown-menu" role="menu">
+				   		<li><a class="pointer" ng-click="ctrl.OnStudentDetailsToggleErrors()" data-once-text="kb.val('common:toggleErrors')"></a></li>
+				   </ul>
+				</div>
+			</div>
+		</accordion-group>
+
+		<accordion-group heading="{{kb.val('studentManagement:admission.familyDetails')}}" data-is-open="ctrl.panelModel.familyDetails.isOpen"
+			data-ng-class="{'panel panel-primary':ctrl.panelModel.familyDetails.isOpen}">
+			<div>
+				
+			</div>
+		</accordion-group>
+
+		<accordion-group heading="{{kb.val('studentManagement:admission.otherDetails')}}" data-is-open="ctrl.panelModel.otherDetails.isOpen"
+			data-ng-class="{'panel panel-primary':ctrl.panelModel.otherDetails.isOpen}">
+			<div>
+				otherDetails
+			</div>
+		</accordion-group>
+	</accordion>
+</div>

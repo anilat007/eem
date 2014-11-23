@@ -1,0 +1,111 @@
+{
+	"category":{
+		"title": "Admission Category",
+		"searchPH" : "Search Category",
+		"categoryPH": "Enter Category",
+		"categoryLabel": "Admission Category",
+		"errNameReq": "Category Name is required"
+	},
+	"admissionType":{
+		"title": "Admission Type",
+		"searchPH" : "Search Admission Type",
+		"admissionTypePH" : "Enter Admission Type",
+		"admissionTypeLabel": "Admission Type",
+		"errNameReq": "Admission Type is required"				
+	},
+	"bloodGroup":{
+		"title": "Blood Group",
+		"searchPH" : "Search Blood Group",
+		"bloodGroupPH" : "Enter Blood Group",
+		"bloodGroupLabel": "Blood Group",
+		"errNameReq": "Blood Group is required"
+	},
+	"boardExam":{
+		"title": "Board Exam",
+		"searchPH" : "Search Exam",
+		"boardExamNamePH" : "Exam Name",
+		"totalMarksPH": "Total Marks",
+		"boardExamLabel": "Exam Name",
+		"totalMarksLabel": "Total Marks",
+		"errNameReq": "Exam Name is required",
+		"errTotalNumber": "Total marks should be a positive number",
+		"errTotalMin": "Total marks should be positive and non-zero"
+	},
+	"caste":{
+		"title": "Caste",
+		"searchPH" : "Search Caste",
+		"castePH": "Enter Caste",
+		"casteLabel": "Caste",
+		"errNameReq": "Caste is required"
+	},
+	"course":{
+		"title": "Course",
+		"searchPH" : "Search Course",
+		"coursePH": "Enter Course",
+		"yearsPH": "Enter Course",
+		"courseLabel": "Course",
+		"yearsLabel" : "No. of Years",
+		"errNameReq": "Course is required",
+		"errYears": "Years should be a positive number",
+		"errYearsMin": "Years should be positive and non-zero"
+	},
+	"documents":{
+		"title": "Documents",
+		"searchPH" : "Search Document",
+		"documentPH": "Enter Document Name",
+		"documentLabel": "Document Name",
+		"remarksLabel" : "Remarks",
+		"errNameReq": "Document Name is required",
+		"errRemarksMaxlen": "Max __len__ characters allowed."
+	},
+	"nationality":{
+		"title": "Nationality",
+		"searchPH" : "Country",
+		"countryPH": "Enter Country",
+		"countryLabel": "Country",
+		"errNameReq": "Country is required"
+	},
+	"occupation":{
+		"title": "Occupation",
+		"searchPH" : "Search Occupation",
+		"occupationPH": "Enter Occupation",
+		"occupationLabel": "Occupation",
+		"errNameReq": "Occupation is required"
+	},
+	"previousInstitute":{
+		"title": "Previous Institute",
+		"searchPH" : "Search Institute",
+		"institutePH": "Enter Institute",
+		"instituteLabel": "Institute",
+		"errNameReq": "Institute is required"
+	},
+	"qualifiedExam":{
+		"title": "Qualified Exam",
+		"searchPH" : "Search Exam",
+		"examPH": "Enter Exam Name",
+		"examLabel": "Exam Name",
+		"errNameReq": "Exam Name is required"
+	},
+	"religion":{
+		"title": "Religion",
+		"searchPH" : "Search Exam",
+		"religionPH": "Enter Religion",
+		"religionLabel": "Religion",
+		"errNameReq": "Religion is required"
+	},
+	"scheme":{
+		"title": "Scheme",
+		"searchPH" : "Scheme",
+		"schemePH": "Enter Scheme",
+		"schemeLabel": "Scheme",
+		"statusLabel": "Status",
+		"errNameReq": "Scheme is required"
+	},
+	"state":{
+		"title": "State",
+		"searchPH" : "State",
+		"statePH": "Enter State",
+		"stateLabel": "State",
+		"errNameReq": "State is required"
+	}
+}

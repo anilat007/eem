@@ -1,0 +1,19 @@
+{
+	"receiptType":{
+		"title": "Receipt Type",
+		"searchPH" : "Search Receipt Type",
+		"receiptTypePH": "Enter Receipt Type",
+		"receiptTypeLabel": "Receipt Type",
+		"errNameReq": "Receipt Type is required"
+	},
+	"headAccount":{
+		"title": "Head Account",
+		"searchPH" : "Search Account Name",
+		"accountNamePH": "Enter Account Name",
+		"accountNameLabel": "Account Name",		
+		"accountNumberPH": "Enter Account Number",
+		"accountNumberLabel": "Account Number",		
+		"errAccountNameReq": "Account Name is required",
+		"errAccountNumberReq": "Account Number is required"
+	}
+}

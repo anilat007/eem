@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- User Management Template -->
+	<definition name=".userManagement"
+		template="/WEB-INF/tiles-templates/UserManagementTile.jsp">
+		<put-attribute name="title" value="KBIT - EEM" type="string" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="login" extends=".userManagement">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body"
+			value="/WEB-INF/Views/UserManagement/Login.jsp" />
+	</definition>
+
+	<definition name="changePassword" extends=".userManagement">
+		<put-attribute name="title" value="Change Password" />
+		<put-attribute name="body"
+			value="/WEB-INF/Views/UserManagement/ChangePassword.jsp" />
+	</definition>
+
+	<!-- Role Module Template -->
+	<definition name="roleModule" template="/WEB-INF/Views/RoleModule/RoleModules.jsp">
+	</definition>
+</tiles-definitions>

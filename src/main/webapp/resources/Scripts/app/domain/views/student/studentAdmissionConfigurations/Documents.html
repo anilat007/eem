@@ -1,0 +1,110 @@
+<div class="container">
+	<div class="row">
+		<h1 data-once-text="kb.val('configStudent:documents.title')"></h1>
+	</div>
+	<div class="row">
+		<div class="input-group col-md-4">
+			<input type="text" class="form-control"
+				data-kb-placeholder="{{kb.val('configStudent:documents.searchPH')}}"
+				data-ng-model="ctrl.model.searchBy"> <span
+				class="input-group-addon"> <span
+				class="glyphicon glyphicon-refresh pointerCursor"
+				data-ng-click="ctrl.fetch()"></span>
+			</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 containerBox">
+			<h4 data-once-text="kb.val('common:details')"></h4>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="col-md-1">#</th>
+						<th class="col-md-2" data-once-text="kb.val('configStudent:documents.documentLabel')"></th>
+						<th class="col-md-2" data-once-text="kb.val('common:remarks')"></th>
+						<th class="col-md-1 text-right"><kb-icon icontype="add" data-ng-click="ctrl.add()"></kb-icon></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="kb-repeat-animate" data-ng-repeat="item in ctrl.model.itemList | filter:{ name : ctrl.model.searchBy } | orderBy:'name'">
+						<td><input type="checkbox" data-ng-model="item.selected" /></td>
+						<td data-once-text="item.name"></td>
+						<td data-once-text="item.remarks"></td>
+						<td class=" text-right"><kb-icon icontype="edit" data-ng-click="ctrl.edit(item)"></kb-icon>
+							<kb-icon icontype="delete" data-ng-click="ctrl.remove(item)"></kb-icon>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-6">
+			<kb-button btntype="add" data-ng-click="ctrl.add()"></kb-button>
+			<kb-button btntype="delete" data-ng-click="ctrl.remove()"></kb-button>
+			<kb-button btntype="reset" data-ng-click="ctrl.reset()"></kb-button>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="addModal.html">
+		<div class="modal-header">
+            <button type="button" class="close" aria-hidden="true" data-ng-click="cancel()">x</button>
+            <h3 class="modal-title" data-once-text="kb.val('common:addTitle')"></h3>
+        </div>
+        <div class="modal-body">
+			<div data-ng-if="model.isDuplicate" class="alert alert-danger" role="alert" data-once-text="kb.val('common:alreadyExist')"></div>
+			<div data-ng-if="model.isSuccess === false" class="alert alert-danger" role="alert" data-once-text="kb.val('common:addError')"></div>
+			<div data-ng-if="model.isSuccess === true" class="alert alert-success" role="alert" data-once-text="kb.val('common:addSuccess')"></div>
+            <form name="uxAddForm" role="form" novalidate>
+                <div class="form-group" data-ng-class="{'has-error': uxAddForm.uxName.$invalid && uxAddForm.uxName.$dirty}">
+                    <label for="uxName" data-once-text="kb.val('configStudent:documents.documentLabel')"></label>
+                    <input type="text" id="Text1" name="uxName" data-ng-model="model.name" class="form-control"
+                        required
+                        data-kb-placeholder="{{kb.val('configStudent:documents.documentPH')}}">
+                    <p data-ng-show="uxAddForm.uxName.$invalid && uxAddForm.uxName.$dirty" class="help-block" data-once-text="kb.val('configStudent:documents.errNameReq')"></p>
+                </div>
+				<div class="form-group" data-ng-class="{'has-error': uxAddForm.uxRemarks.$invalid}">
+                    <label for="uxRemarks" data-once-text="kb.val('common:remarks')"></label>
+                    <textarea id="uxRemarks" name="uxRemarks" data-ng-model="model.remarks" class="form-control" data-ng-maxlength="200" maxlength="200"></textarea>
+                    <p data-ng-show="uxAddForm.uxRemarks.$invalid" class="help-block" data-once-text="kb.val('configStudent:documents.errRemarksMaxlen', {len: '200'})"></p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <kb-button btntype="add" data-ng-click="ok()" data-ng-disabled="uxAddForm.$invalid"></kb-button>
+            <kb-button btntype="addandnew" data-ng-click="okContinue()" data-ng-disabled="uxAddForm.$invalid"></kb-button>
+            <kb-button btntype="cancel" data-ng-click="cancel()"></kb-button>
+        </div>
+	</script>
+
+	<script type="text/ng-template" id="editModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" aria-hidden="true" data-ng-click="cancel()">x</button>
+            <h3 class="modal-title" data-once-text="kb.val('common:editTitle')"></h3>
+        </div>
+        <div class="modal-body">
+            <div data-ng-if="model.isDuplicate" class="alert alert-danger data-ng-scope" role="alert" data-once-text="kb.val('common:alreadyExist')"></div>
+            <form name="uxEditForm" role="form" novalidate>
+                <div class="form-group" data-ng-class="{'has-error': uxEditForm.uxName.$invalid && uxEditForm.uxName.$dirty}">
+                    <label for="uxName" data-once-text="kb.val('configStudent:documents.documentLabel')"></label>
+                    <input type="text" id="uxName" name="uxName"
+                        data-ng-model="model.name" class="form-control"
+                        required
+                        data-kb-placeholder="{{kb.val('configStudent:documents.documentPH')}}">
+                    <p data-ng-show="uxEditForm.uxName.$invalid && uxEditForm.uxName.$dirty" class="help-block" data-once-text="kb.val('configStudent:documents.errNameReq')"></p>
+                </div>
+				<div class="form-group" data-ng-class="{'has-error': uxEditForm.uxRemarks.$invalid}">
+                    <label for="uxRemarks" data-once-text="kb.val('common:remarks')"></label>
+                    <textarea id="uxRemarks" name="uxRemarks" data-ng-model="model.remarks" class="form-control" data-ng-maxlength="200" maxlength="200"></textarea>
+                    <p data-ng-show="uxAddForm.uxRemarks.$invalid" class="help-block" data-once-text="kb.val('configStudent:documents.errRemarksMaxlen', {len: '200'})"></p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <kb-button btntype="update" data-ng-click="ok()" data-ng-disabled="uxEditForm.$invalid"></kb-button>
+            <kb-button btntype="cancel" data-ng-click="cancel()"></kb-button>
+        </div>
+	</script>
+</div>

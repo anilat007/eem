@@ -1,0 +1,32 @@
+body {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	background-color: #FFF;
+}
+
+a {
+	color: #4481EE;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: Arial, sans-serif;
+}
+
+a:HOVER,a:VISITED {
+	color: #4481EE;
+	text-decoration: underline;
+}
+
+.errorContainer {
+	padding: 0;
+	margin: 10px;
+	font-size: 14px;
+}
+
+.errorContainer ul {
+	padding: 0;
+}
+
+.errorContainer li {
+	list-style: none;
+	color: #E05050;
+}

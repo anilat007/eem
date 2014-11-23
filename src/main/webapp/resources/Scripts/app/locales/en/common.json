@@ -1,0 +1,47 @@
+{
+	"author": "Anil",
+
+	"date":{
+		"format":"dd-MMM-yyyy"
+	},
+	
+	"sumbit":"Submit",
+	"add" : "Add",
+	"addAndNew" : "Add & New",
+	"save" : "Save",
+	"delete": "Delete",
+	"reset" : "Reset",
+	"edit": "Edit",
+	"update": "Update",
+	"cancel": "Cancel",
+	"ok": "OK",
+	"refresh": "Refresh",
+	"yes":"Yes",
+	"no":"No",
+	"disabled":"Disabled",
+	"active":"Active",
+	
+	"addTitle": "Add New",
+	"editTitle": "Modify Details",
+	"details": "Details",
+	"remarks": "Remarks",
+			
+	"deleteConfirmTitle": "Confirm Delete",
+	"deleteConfirmMessage": "Selected item(s) will be deleted permanently. Do you want to continue?",
+	
+	"alreadyExist" : "This item already exist.",
+	"alreadyExistInactive": "This item already exist and is inactive. You can activate it by editing item.",
+	"toggleErrors" : "Toggle Errors",		
+	
+	"getSuccess": "Details loaded successfully.",
+	"getError": "Some error has occurred. Please try again.",
+	"addSuccess": "Item added successfully.",
+	"addError": "Add operation failed. Some error has occurred. Please try again.",
+	"removeSuccess": "Item(s) removed successfully.",
+	"removeError": "Remove operation failed. Some error has occurred. Please try again.",
+	"updateSuccess": "Item modified successfully.",
+	"updateError": "Modify operation failed. Some error has occurred. Please try again.",
+	
+	"DBExceptionMessage": "Some error has occurred <b>related to DataBase</b>. Please try again. If problem persists please contact administrator",
+	"GeneralExceptionMessage": "Some error has occurred. Please try again. If problem persists please contact administrator"
+}

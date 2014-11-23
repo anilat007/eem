@@ -1,0 +1,37 @@
+{
+	"StudentAdmissionConfiguration": {
+		"AdmissionCategory":"Admission Category",
+		"AdmissionType":"Admission Type",
+		"BloodGroup":"Blood Group",
+		"BoardExam":"Board Exam",
+		"Caste":"Caste",
+		"Course":"Course",
+		"Documents":"Documents",
+		"Nationality":"Nationality",
+		"Occupation":"Occupation",
+		"PreviousInstitute":"Previous Institute",
+		"QualifiedExam":"Qualified Exam",
+		"Religion":"Religion",
+		"State":"State",
+		"Scheme":"Scheme",
+		"Year":"Year"	 	
+	 },
+	 "StudentManagement":{
+	 	"NewAdmission":"New Admission",
+	 	"EditAdmission":"Change Admission Details",
+	 	"EditClass":"Change Class",
+	 	"Report":"Report",
+	 	"AdmissionReceipt":"Admission Receipt"
+	 },
+	 "ReceiptConfiguration": {
+	 	"ReceiptType":"Receipt Type",
+	 	"HeadAccount":"Head Account",
+	 	"FeeCategory":"Fee Category",
+	 	"AdmissionFee":"Admission Fee",
+	 	"BusRoute":"Bus Route",
+	 	"BusFeeConfig":"Bus Fee Config",
+	 	"BusAllocation":"Bus Allocation",
+	 	"HostelFeeConfig":"Hostel Fee Config",
+	 	"HostelAllocation":"Hostel Allocation"
+	 }
+}
